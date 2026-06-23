@@ -7,11 +7,18 @@ A Python-based patient caller simulator for testing a healthcare voice agent.
 - Local scenario simulation
 - Fake clinic agent for offline testing
 - Transcript and metadata saving
+- Safety config for the assessment number
 - Real phone-call integration planned later
 
 ## Safety Note
 
-The final caller will be designed to call only the assessment number provided in the challenge.
+The final caller is designed to call only the assessment number provided in the challenge:
+
+```text
++1-805-439-8008
+```
+
+The number is hard-coded in `app/config.py` instead of being accepted through user input. This reduces the risk of accidentally calling an unintended number during testing.
 
 ## Local Setup
 
@@ -31,3 +38,7 @@ docs/     Architecture and iteration notes
 reports/  Final bug reports
 tests/    Tests
 ```
+
+## Local Simulation
+
+The current version runs 10 local patient scenarios against a fake clinic agent. This allows scenario flow and transcript saving to be tested before using paid telephony or voice APIs.
