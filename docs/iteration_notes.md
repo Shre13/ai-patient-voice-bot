@@ -25,3 +25,7 @@ The local audio files are intentionally labeled `local_simulated_recording.wav` 
 ## Phase 3: Twilio webhook skeleton
 
 I added a local Flask webhook that returns valid TwiML. This is a preparation step before making real calls. The current webhook only says a placeholder message and hangs up, which lets me test the Twilio-facing structure without spending money or calling the assessment line.
+
+## Phase 4: Real-call safety guard
+
+I added an explicit confirmation step before allowing a real outbound call. Dry-run mode remains the default. If `--real-call` is used, the script requires the exact confirmation text before calling Twilio. This reduces the chance of accidental paid calls during development.
