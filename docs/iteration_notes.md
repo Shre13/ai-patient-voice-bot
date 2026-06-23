@@ -1,0 +1,17 @@
+# Iteration Notes
+
+## Phase 1: Local simulation
+
+I started with a local-only simulation instead of immediately connecting to paid telephony APIs. This made it easier to test the scenario design, patient behavior, transcript saving, and folder structure before making real calls.
+
+## First issue found
+
+The first local version produced repetitive conversations. Several scenarios got stuck in loops where the clinic agent repeatedly asked for more detail and the patient bot repeated a generic response.
+
+## Change made
+
+I updated the fake clinic agent and patient agent to add scenario-specific exits. For example, the urgent symptom scenario now ends after the patient agrees to seek urgent care, and the insurance/location/weekend scenarios now close naturally after the agent gives the relevant guidance.
+
+## Result
+
+The second local run produced cleaner transcripts for all 10 scenarios. The conversations are still intentionally simple because this phase is only meant to validate flow before real voice-call integration.

@@ -1,0 +1,5 @@
+# Architecture
+
+This project starts as a local patient-agent simulator before connecting to real phone calls. The current version uses a scenario-driven design: each scenario defines a patient persona, a conversation goal, an opening message, and the expected behavior from the clinic agent. The local runner sends the patient through a fake clinic agent so I can test conversation flow, transcript saving, and scenario coverage without spending API or telephony credits during early development.
+
+I chose this staged approach because the challenge evaluates real voice-call quality first, so it is important to validate the patient behavior before connecting to Twilio or a live voice model. The local simulation is intentionally simple and readable. Later versions will replace the fake clinic agent with the real assessment phone line, add call recording, and save transcripts/metadata for each real call.
