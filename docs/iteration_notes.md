@@ -15,3 +15,9 @@ I updated the fake clinic agent and patient agent to add scenario-specific exits
 ## Result
 
 The second local run produced cleaner transcripts for all 10 scenarios. The conversations are still intentionally simple because this phase is only meant to validate flow before real voice-call integration.
+
+## Phase 2: Local audio artifacts
+
+After the text simulation worked, I added local simulated audio generation using `pyttsx3`. This is not meant to replace the real phone recordings required by the challenge. It is a development step that lets me test the call artifact structure locally before paying for telephony/API calls.
+
+The local audio files are intentionally labeled `local_simulated_recording.wav` so they are not confused with final assessment recordings.
