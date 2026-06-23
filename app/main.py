@@ -1,3 +1,5 @@
+import argparse
+
 from app.scenarios import SCENARIOS
 from app.patient_agent import generate_patient_reply
 from app.fake_clinic_agent import fake_clinic_response
@@ -18,6 +20,18 @@ CLOSING_PHRASES = [
 def should_end_conversation(patient_reply: str) -> bool:
     reply = patient_reply.lower()
     return any(phrase in reply for phrase in CLOSING_PHRASES)
+
+
+def get_scenario_by_id(scenario_id: str) -> dict:
+    for scenario in SCENARIOS:
+        if scenario["id"] == scenario_id:
+            return scenario
+
+    available_ids = "\n".join(f"- {scenario['id']}" for scenario in SCENARIOS)
+    raise ValueError(
+        f"Scenario not found: {scenario_id}\n\n"
+        f"Available scenarios:\n{available_ids}"
+    )
 
 
 def run_local_simulation(scenario: dict, max_turns: int = 6) -> None:
@@ -57,6 +71,23 @@ def run_local_simulation(scenario: dict, max_turns: int = 6) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Run local patient-agent simulations."
+    )
+
+    parser.add_argument(
+        "--scenario",
+        type=str,
+        help="Run only one scenario by scenario ID. If omitted, all scenarios run.",
+    )
+
+    args = parser.parse_args()
+
+    if args.scenario:
+        scenario = get_scenario_by_id(args.scenario)
+        run_local_simulation(scenario)
+        return
+
     for scenario in SCENARIOS:
         run_local_simulation(scenario)
 
