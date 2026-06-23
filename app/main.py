@@ -2,7 +2,7 @@ from app.scenarios import SCENARIOS
 from app.patient_agent import generate_patient_reply
 from app.fake_clinic_agent import fake_clinic_response
 from app.transcript_utils import save_transcript
-
+from app.audio_utils import create_local_audio_recording
 
 CLOSING_PHRASES = [
     "thank you for your help",
@@ -46,6 +46,7 @@ def run_local_simulation(scenario: dict, max_turns: int = 6) -> None:
         print(f"Clinic Agent: {clinic_message}")
 
     save_transcript(scenario, turns)
+    create_local_audio_recording(scenario, turns)
 
 
 def main() -> None:
