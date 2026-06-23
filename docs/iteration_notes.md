@@ -29,3 +29,7 @@ I added a local Flask webhook that returns valid TwiML. This is a preparation st
 ## Phase 4: Real-call safety guard
 
 I added an explicit confirmation step before allowing a real outbound call. Dry-run mode remains the default. If `--real-call` is used, the script requires the exact confirmation text before calling Twilio. This reduces the chance of accidental paid calls during development.
+
+## Phase 5: Twilio callback endpoints
+
+I added placeholder endpoints for Twilio call status and recording callbacks. These endpoints save incoming webhook payloads locally so I can debug call lifecycle events before building the full recording/transcription pipeline. This also helps connect real call artifacts back to each assessment run later.

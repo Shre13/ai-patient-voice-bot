@@ -85,13 +85,19 @@ def place_assessment_call(dry_run: bool = True) -> TwilioCallResult:
             "expose it with a tunnel, and add the public URL to .env before making a real call."
     )
 
-    voice_webhook_url = f"{public_webhook_base_url.rstrip('/')}/voice"
+    base_url = public_webhook_base_url.rstrip("/")
+    voice_webhook_url = f"{base_url}/voice"
+    status_callback_url = f"{base_url}/status-callback"
+    recording_callback_url = f"{base_url}/recording-callback"
 
     call = client.calls.create(
         to=to_number,
         from_=from_number,
         url=voice_webhook_url,
         record=True,
+        recording_status_callback=recording_callback_url,
+        status_callback=status_callback_url,
+        status_callback_event=["initiated", "ringing", "answered", "completed"],
     )
 
 
