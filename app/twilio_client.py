@@ -1,6 +1,8 @@
 import os
 from dataclasses import dataclass
-from xmlrpc import client
+from pathlib import Path
+import json
+from datetime import datetime, timezone
 
 from dotenv import load_dotenv
 from twilio.rest import Client
@@ -14,6 +16,9 @@ class TwilioCallResult:
     to_number: str
     from_number: str | None
     status: str
+    scenario_id: str | None = None
+    run_id: str | None = None
+    run_dir: str | None = None
     call_sid: str | None = None
 
 
@@ -45,7 +50,43 @@ def get_twilio_client() -> Client:
     return Client(account_sid, auth_token)
 
 
-def place_assessment_call(dry_run: bool = True) -> TwilioCallResult:
+def save_twilio_call_plan(
+    run_dir: Path,
+    scenario_id: str,
+    run_id: str,
+    to_number: str,
+    from_number: str,
+    dry_run: bool,
+    call_sid: str | None = None,
+) -> None:
+    """
+    Saves the planned or completed Twilio call setup for traceability.
+    """
+
+    call_plan_path = run_dir / "twilio_call_plan.json"
+
+    call_plan = {
+        "scenario_id": scenario_id,
+        "run_id": run_id,
+        "to_number": to_number,
+        "from_number": from_number,
+        "dry_run": dry_run,
+        "call_sid": call_sid,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+    with call_plan_path.open("w", encoding="utf-8") as file:
+        json.dump(call_plan, file, indent=2)
+
+    print(f"Saved Twilio call plan: {call_plan_path}")
+
+
+def place_assessment_call(
+    scenario_id: str,
+    run_id: str,
+    run_dir: Path,
+    dry_run: bool = True,
+) -> TwilioCallResult:
     """
     Prepare or place the outbound assessment call.
 
@@ -67,15 +108,25 @@ def place_assessment_call(dry_run: bool = True) -> TwilioCallResult:
         )
 
     if dry_run:
+        save_twilio_call_plan(
+            run_dir=run_dir,
+            scenario_id=scenario_id,
+            run_id=run_id,
+            to_number=to_number,
+            from_number=from_number,
+            dry_run=True,
+        )
+
         return TwilioCallResult(
             dry_run=True,
             to_number=to_number,
             from_number=from_number,
             status="dry_run_validated",
+            scenario_id=scenario_id,
+            run_id=run_id,
+            run_dir=str(run_dir),
             call_sid=None,
         )
-
-    client = get_twilio_client()
 
     public_webhook_base_url = os.getenv("PUBLIC_WEBHOOK_BASE_URL")
 
@@ -83,7 +134,9 @@ def place_assessment_call(dry_run: bool = True) -> TwilioCallResult:
         raise RuntimeError(
             "Missing PUBLIC_WEBHOOK_BASE_URL. Start your local webhook server, "
             "expose it with a tunnel, and add the public URL to .env before making a real call."
-    )
+        )
+
+    client = get_twilio_client()
 
     base_url = public_webhook_base_url.rstrip("/")
     voice_webhook_url = f"{base_url}/voice"
@@ -100,11 +153,23 @@ def place_assessment_call(dry_run: bool = True) -> TwilioCallResult:
         status_callback_event=["initiated", "ringing", "answered", "completed"],
     )
 
+    save_twilio_call_plan(
+        run_dir=run_dir,
+        scenario_id=scenario_id,
+        run_id=run_id,
+        to_number=to_number,
+        from_number=from_number,
+        dry_run=False,
+        call_sid=call.sid,
+    )
 
     return TwilioCallResult(
         dry_run=False,
         to_number=to_number,
         from_number=from_number,
         status=call.status,
+        scenario_id=scenario_id,
+        run_id=run_id,
+        run_dir=str(run_dir),
         call_sid=call.sid,
     )

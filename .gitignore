@@ -27,3 +27,8 @@ Thumbs.db
 *.mp3
 *.ogg
 *.m4a
+
+# Local/generated call artifacts during development
+calls/20*_call_*/
+calls/call_*/
+calls/_twilio_events/
