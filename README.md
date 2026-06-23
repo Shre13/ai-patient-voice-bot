@@ -71,3 +71,19 @@ For real Twilio calls, the local Flask webhook must be exposed through a public 
 
 ```env
 PUBLIC_WEBHOOK_BASE_URL=
+
+## Preflight Checks
+
+Run setup checks before a dry-run:
+
+```bash
+python -m app.preflight --scenario call_05_weekend_request
+```
+
+Run stricter checks before a real call:
+
+```bash
+python -m app.preflight --scenario call_05_weekend_request --real-call
+```
+
+The real-call preflight requires a public webhook URL in `.env`.

@@ -70,3 +70,7 @@ I separated local development call artifacts from final assessment call artifact
 ## Phase 10: Public tunnel preparation
 
 I documented the tunnel setup needed for Twilio to reach the local Flask webhook. This is still a preparation step and does not place a real call. The goal is to make the real-call setup repeatable by clearly documenting how to expose `/voice`, `/status-callback`, and `/recording-callback` through a public HTTPS URL.
+
+## Phase 11: Preflight checks
+
+I added a preflight command to validate the scenario ID, `.env` file, Twilio phone number, assessment-number safety guard, and public webhook URL requirements before making calls. Dry-run mode allows an empty public webhook URL, while real-call mode requires it. This gives me a safer checklist before spending money on telephony calls.
