@@ -42,3 +42,25 @@ tests/    Tests
 ## Local Simulation
 
 The current version runs 10 local patient scenarios against a fake clinic agent. This allows scenario flow and transcript saving to be tested before using paid telephony or voice APIs.
+
+## Local Webhook Test
+
+The Twilio webhook skeleton can be tested locally:
+
+```bash
+python -m app.webhook_server
+```
+
+Health check:
+
+```text
+http://127.0.0.1:5000/health
+```
+
+Voice webhook:
+
+```text
+http://127.0.0.1:5000/voice
+```
+
+This currently returns placeholder TwiML only. It does not place a real phone call.

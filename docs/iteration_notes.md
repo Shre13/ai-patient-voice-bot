@@ -21,3 +21,7 @@ The second local run produced cleaner transcripts for all 10 scenarios. The conv
 After the text simulation worked, I added local simulated audio generation using `pyttsx3`. This is not meant to replace the real phone recordings required by the challenge. It is a development step that lets me test the call artifact structure locally before paying for telephony/API calls.
 
 The local audio files are intentionally labeled `local_simulated_recording.wav` so they are not confused with final assessment recordings.
+
+## Phase 3: Twilio webhook skeleton
+
+I added a local Flask webhook that returns valid TwiML. This is a preparation step before making real calls. The current webhook only says a placeholder message and hangs up, which lets me test the Twilio-facing structure without spending money or calling the assessment line.
