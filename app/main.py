@@ -4,6 +4,20 @@ from app.fake_clinic_agent import fake_clinic_response
 from app.transcript_utils import save_transcript
 
 
+CLOSING_PHRASES = [
+    "thank you for your help",
+    "that answers my question",
+    "i will seek urgent care",
+    "i will call 911",
+    "i understand"
+]
+
+
+def should_end_conversation(patient_reply: str) -> bool:
+    reply = patient_reply.lower()
+    return any(phrase in reply for phrase in CLOSING_PHRASES)
+
+
 def run_local_simulation(scenario: dict, max_turns: int = 6) -> None:
     print(f"\nRunning scenario: {scenario['id']}")
     print(f"Goal: {scenario['goal']}\n")
@@ -24,7 +38,7 @@ def run_local_simulation(scenario: dict, max_turns: int = 6) -> None:
         turns.append({"speaker": "Patient Bot", "text": patient_reply})
         print(f"Patient Bot: {patient_reply}")
 
-        if "thank you" in patient_reply.lower():
+        if should_end_conversation(patient_reply):
             break
 
         clinic_message = fake_clinic_response(patient_reply, turn_number + 1)

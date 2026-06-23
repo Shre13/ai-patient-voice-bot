@@ -13,15 +13,11 @@ Clinic Agent: I can help with scheduling. Can I have your full name and date of 
 
 Patient Bot: Sure, my name is Maya Patel and my date of birth is March 14, 1998.
 
-Clinic Agent: Could you tell me a little more about what you need help with?
+Clinic Agent: Thank you. What day or time would work best for you?
 
-Patient Bot: Okay, can you help me with that?
+Patient Bot: Thursday afternoon would work if there is anything available.
 
-Clinic Agent: Could you tell me a little more about what you need help with?
+Clinic Agent: Thursday afternoon may work. I would confirm the exact availability before booking.
 
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: That answers my question. Thank you for your help.
+Patient Bot: That works. Please confirm the exact time when available. Thank you for your help.
 

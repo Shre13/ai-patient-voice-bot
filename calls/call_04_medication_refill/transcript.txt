@@ -11,17 +11,9 @@ Patient Bot: Hi, I am calling because I need a refill for my medication and I am
 
 Clinic Agent: I can help route that request. Which medication are you calling about?
 
-Patient Bot: It is for metformin. I ran out recently and wanted to know what I should do next.
+Patient Bot: It is for metformin. I ran out two days ago and wanted to know what I should do.
 
-Clinic Agent: Could you tell me a little more about what you need help with?
+Clinic Agent: Thanks. I can send a refill request to the care team. Are you completely out of the medication?
 
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: That answers my question. Thank you for your help.
+Patient Bot: Yes, I am completely out. I understand you need to route it to the care team. Thank you for your help.
 

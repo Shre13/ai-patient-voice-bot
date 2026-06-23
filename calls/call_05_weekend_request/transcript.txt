@@ -9,19 +9,7 @@ Clinic Agent: Thanks for calling. How can I help you today?
 
 Patient Bot: Hi, do you have anything available this Sunday around 10 in the morning?
 
-Clinic Agent: Could you tell me a little more about what you need help with?
+Clinic Agent: I would need to check whether weekend appointments are available before confirming that.
 
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: That answers my question. Thank you for your help.
+Patient Bot: Okay, if Sunday is not available, I can try a weekday instead. Thank you for your help.
 

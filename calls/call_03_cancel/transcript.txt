@@ -9,19 +9,15 @@ Clinic Agent: Thanks for calling. How can I help you today?
 
 Patient Bot: Hi, I need to cancel my appointment for this Friday.
 
-Clinic Agent: I can help with scheduling. Can I have your full name and date of birth?
+Clinic Agent: I can help cancel the appointment. Can you confirm your full name and date of birth?
 
 Patient Bot: Sure, my name is Maya Patel and my date of birth is March 14, 1998.
 
-Clinic Agent: Could you tell me a little more about what you need help with?
+Clinic Agent: Thank you. What day or time would work best for you?
 
-Patient Bot: Okay, can you help me with that?
+Patient Bot: It is for this Friday. I just need to cancel it.
 
-Clinic Agent: Could you tell me a little more about what you need help with?
+Clinic Agent: I can help cancel the appointment. I will mark the Friday appointment as canceled.
 
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: That answers my question. Thank you for your help.
+Patient Bot: Yes, please cancel the Friday appointment. Thank you for your help.
 

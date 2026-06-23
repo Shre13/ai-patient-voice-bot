@@ -9,19 +9,7 @@ Clinic Agent: Thanks for calling. How can I help you today?
 
 Patient Bot: Hi, I am a new patient and I wanted to check if you accept Blue Cross Blue Shield.
 
-Clinic Agent: Could you tell me a little more about what you need help with?
+Clinic Agent: We can check insurance before scheduling. I would recommend confirming your plan details with the front desk.
 
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: Okay, can you help me with that?
-
-Clinic Agent: Could you tell me a little more about what you need help with?
-
-Patient Bot: That answers my question. Thank you for your help.
+Patient Bot: That makes sense. I will confirm my plan details with the front desk. Thank you for your help.
 
