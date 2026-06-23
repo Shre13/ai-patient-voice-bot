@@ -1,5 +1,6 @@
 import os
 from dataclasses import dataclass
+from xmlrpc import client
 
 from dotenv import load_dotenv
 from twilio.rest import Client
@@ -76,14 +77,23 @@ def place_assessment_call(dry_run: bool = True) -> TwilioCallResult:
 
     client = get_twilio_client()
 
-    # Placeholder TwiML URL.
-    # Later, this will point to our local/public webhook that controls the voice bot.
+    public_webhook_base_url = os.getenv("PUBLIC_WEBHOOK_BASE_URL")
+
+    if not public_webhook_base_url:
+        raise RuntimeError(
+            "Missing PUBLIC_WEBHOOK_BASE_URL. Start your local webhook server, "
+            "expose it with a tunnel, and add the public URL to .env before making a real call."
+    )
+
+    voice_webhook_url = f"{public_webhook_base_url.rstrip('/')}/voice"
+
     call = client.calls.create(
         to=to_number,
         from_=from_number,
-        url="https://demo.twilio.com/docs/voice.xml",
+        url=voice_webhook_url,
         record=True,
     )
+
 
     return TwilioCallResult(
         dry_run=False,

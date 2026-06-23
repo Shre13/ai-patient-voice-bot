@@ -64,3 +64,10 @@ http://127.0.0.1:5000/voice
 ```
 
 This currently returns placeholder TwiML only. It does not place a real phone call.
+
+## Public Webhook URL
+
+For real Twilio calls, the local Flask webhook must be exposed through a public HTTPS tunnel. The public base URL should be placed in `.env` as:
+
+```env
+PUBLIC_WEBHOOK_BASE_URL=
