@@ -32,3 +32,15 @@ Thumbs.db
 calls/20*_call_*/
 calls/call_*/
 calls/_twilio_events/
+
+
+Save.
+
+---
+
+# Local/generated call artifacts during development
+calls/20*_call_*/
+calls/call_*/
+calls/_twilio_events/
+
+# Keep final_calls tracked for selected submission artifacts

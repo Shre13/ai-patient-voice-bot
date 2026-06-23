@@ -53,3 +53,16 @@ I added run-specific folders so each scenario execution gets a unique ID. This m
 ## Phase 7: Single-scenario runner
 
 I added a command-line option to run one scenario at a time. This makes local testing faster and prepares the project for real call testing, where each Twilio call should be tied to one specific scenario and run ID.
+
+## Phase 8: Scenario-aware Twilio dry-run
+
+I updated the Twilio call runner so every planned call must be associated with a scenario ID. Dry-run mode now creates a `twilio_call_plan.json` file inside a run-specific folder, which makes it easier to connect each future real call to a scenario, recording, transcript, and bug report entry.
+
+Example dry-run command:
+
+```bash
+python -m app.call_runner --scenario call_05_weekend_request
+
+## Phase 9: Final call artifact separation
+
+I separated local development call artifacts from final assessment call artifacts. Local runs stay under `calls/` and are ignored to avoid cluttering the repo, while selected final calls will be copied into `final_calls/` for submission. This keeps the repository cleaner and makes the required deliverables easier to review.
