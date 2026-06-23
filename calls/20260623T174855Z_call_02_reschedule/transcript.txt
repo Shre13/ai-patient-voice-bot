@@ -1,0 +1,23 @@
+Scenario: call_02_reschedule
+Persona: Daniel Lee, a busy patient who needs to move an appointment
+Goal: Reschedule an existing appointment from Tuesday morning to later in the week.
+Expected Behavior: Agent should verify the patient and clearly confirm the new appointment.
+
+--- Transcript ---
+
+Clinic Agent: Thanks for calling. How can I help you today?
+
+Patient Bot: Hi, I have an appointment on Tuesday morning, but I need to reschedule it to later in the week.
+
+Clinic Agent: I can help reschedule. Can you confirm your full name and date of birth first?
+
+Patient Bot: Sure, my name is Maya Patel and my date of birth is March 14, 1998.
+
+Clinic Agent: Thank you. What day or time would work best for you?
+
+Patient Bot: Thursday afternoon would work better for me.
+
+Clinic Agent: Thursday afternoon may work. I would confirm the exact availability before booking.
+
+Patient Bot: That works. Please confirm the exact time when available. Thank you for your help.
+

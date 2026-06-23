@@ -1,0 +1,13 @@
+{
+  "run_id": "20260623T174855Z_call_01_simple_scheduling",
+  "scenario_id": "call_01_simple_scheduling",
+  "persona": "Maya Patel, a polite patient with mild back pain",
+  "goal": "Schedule a new appointment for next week.",
+  "expected_behavior": "Agent should ask for basic details and offer appointment options.",
+  "created_at": "2026-06-23T17:48:55.143907+00:00",
+  "status": "local_simulation",
+  "twilio_call_sid": null,
+  "recording_file": null,
+  "transcript_file": "transcript.txt",
+  "notes_file": "notes.md"
+}

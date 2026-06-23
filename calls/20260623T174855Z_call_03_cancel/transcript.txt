@@ -1,0 +1,23 @@
+Scenario: call_03_cancel
+Persona: Anika Rao, a patient canceling a visit
+Goal: Cancel an upcoming appointment.
+Expected Behavior: Agent should confirm the cancellation and not leave the status unclear.
+
+--- Transcript ---
+
+Clinic Agent: Thanks for calling. How can I help you today?
+
+Patient Bot: Hi, I need to cancel my appointment for this Friday.
+
+Clinic Agent: I can help cancel the appointment. Can you confirm your full name and date of birth?
+
+Patient Bot: Sure, my name is Maya Patel and my date of birth is March 14, 1998.
+
+Clinic Agent: Thank you. What day or time would work best for you?
+
+Patient Bot: It is for this Friday. I just need to cancel it.
+
+Clinic Agent: I can help cancel the appointment. I will mark the Friday appointment as canceled.
+
+Patient Bot: Yes, please cancel the Friday appointment. Thank you for your help.
+

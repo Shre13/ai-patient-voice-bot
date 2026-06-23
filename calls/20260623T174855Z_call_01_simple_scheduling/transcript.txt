@@ -1,0 +1,23 @@
+Scenario: call_01_simple_scheduling
+Persona: Maya Patel, a polite patient with mild back pain
+Goal: Schedule a new appointment for next week.
+Expected Behavior: Agent should ask for basic details and offer appointment options.
+
+--- Transcript ---
+
+Clinic Agent: Thanks for calling. How can I help you today?
+
+Patient Bot: Hi, I wanted to schedule an appointment for sometime next week. I have been having mild back pain.
+
+Clinic Agent: I can help with scheduling. Can I have your full name and date of birth?
+
+Patient Bot: Sure, my name is Maya Patel and my date of birth is March 14, 1998.
+
+Clinic Agent: Thank you. What day or time would work best for you?
+
+Patient Bot: Thursday afternoon would work if there is anything available.
+
+Clinic Agent: Thursday afternoon may work. I would confirm the exact availability before booking.
+
+Patient Bot: That works. Please confirm the exact time when available. Thank you for your help.
+

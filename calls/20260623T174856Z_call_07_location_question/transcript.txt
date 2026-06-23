@@ -1,0 +1,15 @@
+Scenario: call_07_location_question
+Persona: Sofia Martinez, a patient asking for location details
+Goal: Ask where the office is located and whether parking is available.
+Expected Behavior: Agent should provide accurate location guidance or clarify if unsure.
+
+--- Transcript ---
+
+Clinic Agent: Thanks for calling. How can I help you today?
+
+Patient Bot: Hi, I have an appointment coming up and wanted to confirm the office address and parking situation.
+
+Clinic Agent: I can help with that. The office address and parking details should be confirmed before your appointment.
+
+Patient Bot: Okay, I will confirm the exact address and parking details before coming in. Thank you for your help.
+

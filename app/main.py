@@ -3,6 +3,8 @@ from app.patient_agent import generate_patient_reply
 from app.fake_clinic_agent import fake_clinic_response
 from app.transcript_utils import save_transcript
 from app.audio_utils import create_local_audio_recording
+from app.run_context import create_run_id, create_run_directory, save_run_manifest
+
 
 CLOSING_PHRASES = [
     "thank you for your help",
@@ -19,7 +21,11 @@ def should_end_conversation(patient_reply: str) -> bool:
 
 
 def run_local_simulation(scenario: dict, max_turns: int = 6) -> None:
+    run_id = create_run_id(scenario["id"])
+    run_dir = create_run_directory(run_id)
+
     print(f"\nRunning scenario: {scenario['id']}")
+    print(f"Run ID: {run_id}")
     print(f"Goal: {scenario['goal']}\n")
 
     turns = []
@@ -45,8 +51,9 @@ def run_local_simulation(scenario: dict, max_turns: int = 6) -> None:
         turns.append({"speaker": "Clinic Agent", "text": clinic_message})
         print(f"Clinic Agent: {clinic_message}")
 
-    save_transcript(scenario, turns)
-    create_local_audio_recording(scenario, turns)
+    save_run_manifest(run_dir, scenario, run_id)
+    save_transcript(scenario, turns, run_dir=run_dir)
+    create_local_audio_recording(scenario, turns, run_dir=run_dir)
 
 
 def main() -> None:

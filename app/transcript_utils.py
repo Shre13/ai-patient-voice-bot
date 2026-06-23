@@ -3,8 +3,15 @@ from datetime import datetime, timezone
 import json
 
 
-def save_transcript(scenario: dict, turns: list[dict]) -> None:
-    call_dir = Path("calls") / scenario["id"]
+def save_transcript(scenario: dict, turns: list[dict], run_dir: Path | None = None) -> None:
+    """
+    Saves transcript, metadata, and review notes for a scenario run.
+
+    If run_dir is provided, artifacts are saved inside that run-specific folder.
+    Otherwise, it falls back to calls/<scenario_id>.
+    """
+
+    call_dir = run_dir or (Path("calls") / scenario["id"])
     call_dir.mkdir(parents=True, exist_ok=True)
 
     transcript_path = call_dir / "transcript.txt"
@@ -29,7 +36,7 @@ def save_transcript(scenario: dict, turns: list[dict]) -> None:
         "created_at": datetime.now(timezone.utc).isoformat(),
         "turn_count": len(turns),
         "local_simulation": True,
-        "recording_file": "recording.mp3",
+        "recording_file": "local_simulated_recording.wav",
         "transcript_file": "transcript.txt",
         "notes_file": "notes.md"
     }
