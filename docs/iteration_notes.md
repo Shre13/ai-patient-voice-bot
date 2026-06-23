@@ -66,3 +66,7 @@ python -m app.call_runner --scenario call_05_weekend_request
 ## Phase 9: Final call artifact separation
 
 I separated local development call artifacts from final assessment call artifacts. Local runs stay under `calls/` and are ignored to avoid cluttering the repo, while selected final calls will be copied into `final_calls/` for submission. This keeps the repository cleaner and makes the required deliverables easier to review.
+
+## Phase 10: Public tunnel preparation
+
+I documented the tunnel setup needed for Twilio to reach the local Flask webhook. This is still a preparation step and does not place a real call. The goal is to make the real-call setup repeatable by clearly documenting how to expose `/voice`, `/status-callback`, and `/recording-callback` through a public HTTPS URL.
