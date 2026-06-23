@@ -3,7 +3,10 @@
   "persona": "Jordan Kim, a new patient asking about insurance",
   "goal": "Ask whether the office accepts Blue Cross Blue Shield.",
   "expected_behavior": "Agent should answer or route insurance verification appropriately.",
-  "created_at": "2026-06-23T01:17:43.786169+00:00",
+  "created_at": "2026-06-23T02:25:17.061586+00:00",
   "turn_count": 4,
-  "local_simulation": true
+  "local_simulation": true,
+  "recording_file": "recording.mp3",
+  "transcript_file": "transcript.txt",
+  "notes_file": "notes.md"
 }

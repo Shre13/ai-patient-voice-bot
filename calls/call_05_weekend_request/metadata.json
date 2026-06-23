@@ -3,7 +3,10 @@
   "persona": "Priya Shah, a patient asking for weekend availability",
   "goal": "Ask for a Sunday appointment at 10 AM.",
   "expected_behavior": "Agent should check availability or office hours before confirming.",
-  "created_at": "2026-06-23T01:17:43.785003+00:00",
+  "created_at": "2026-06-23T02:25:17.059258+00:00",
   "turn_count": 4,
-  "local_simulation": true
+  "local_simulation": true,
+  "recording_file": "recording.mp3",
+  "transcript_file": "transcript.txt",
+  "notes_file": "notes.md"
 }

@@ -9,6 +9,7 @@ def save_transcript(scenario: dict, turns: list[dict]) -> None:
 
     transcript_path = call_dir / "transcript.txt"
     metadata_path = call_dir / "metadata.json"
+    notes_path = call_dir / "notes.md"
 
     with transcript_path.open("w", encoding="utf-8") as file:
         file.write(f"Scenario: {scenario['id']}\n")
@@ -27,10 +28,27 @@ def save_transcript(scenario: dict, turns: list[dict]) -> None:
         "expected_behavior": scenario["expected_behavior"],
         "created_at": datetime.now(timezone.utc).isoformat(),
         "turn_count": len(turns),
-        "local_simulation": True
+        "local_simulation": True,
+        "recording_file": "recording.mp3",
+        "transcript_file": "transcript.txt",
+        "notes_file": "notes.md"
     }
 
     with metadata_path.open("w", encoding="utf-8") as file:
         json.dump(metadata, file, indent=2)
+
+    if not notes_path.exists():
+        with notes_path.open("w", encoding="utf-8") as file:
+            file.write(f"# Notes: {scenario['id']}\n\n")
+            file.write(f"## Scenario Goal\n\n{scenario['goal']}\n\n")
+            file.write("## What to Listen For\n\n")
+            file.write(f"- {scenario['expected_behavior']}\n")
+            file.write("- Did the conversation sound natural?\n")
+            file.write("- Did the agent ask appropriate clarifying questions?\n")
+            file.write("- Did the agent avoid unsafe or unsupported claims?\n\n")
+            file.write("## Observations\n\n")
+            file.write("- TBD after real call review.\n\n")
+            file.write("## Potential Bug\n\n")
+            file.write("- TBD.\n")
 
     print(f"Saved transcript: {transcript_path}")
