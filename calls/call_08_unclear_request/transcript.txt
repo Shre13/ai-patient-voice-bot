@@ -1,0 +1,27 @@
+Scenario: call_08_unclear_request
+Persona: Evan Brooks, a vague patient who is unsure what they need
+Goal: Give an unclear request and see if the agent asks clarifying questions.
+Expected Behavior: Agent should ask clarifying questions and guide safely.
+
+--- Transcript ---
+
+Clinic Agent: Thanks for calling. How can I help you today?
+
+Patient Bot: Hi, I am not really sure who I need to talk to, but I have been feeling off lately.
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: That answers my question. Thank you for your help.
+

@@ -1,0 +1,27 @@
+Scenario: call_05_weekend_request
+Persona: Priya Shah, a patient asking for weekend availability
+Goal: Ask for a Sunday appointment at 10 AM.
+Expected Behavior: Agent should check availability or office hours before confirming.
+
+--- Transcript ---
+
+Clinic Agent: Thanks for calling. How can I help you today?
+
+Patient Bot: Hi, do you have anything available this Sunday around 10 in the morning?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: That answers my question. Thank you for your help.
+

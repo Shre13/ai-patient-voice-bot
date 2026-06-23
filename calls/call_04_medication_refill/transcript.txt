@@ -1,0 +1,27 @@
+Scenario: call_04_medication_refill
+Persona: Chris Morgan, a patient asking about a medication refill
+Goal: Request a refill and ask what information is needed.
+Expected Behavior: Agent should explain refill process and avoid giving medical advice.
+
+--- Transcript ---
+
+Clinic Agent: Thanks for calling. How can I help you today?
+
+Patient Bot: Hi, I am calling because I need a refill for my medication and I am not sure what information you need.
+
+Clinic Agent: I can help route that request. Which medication are you calling about?
+
+Patient Bot: It is for metformin. I ran out recently and wanted to know what I should do next.
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: Okay, can you help me with that?
+
+Clinic Agent: Could you tell me a little more about what you need help with?
+
+Patient Bot: That answers my question. Thank you for your help.
+
