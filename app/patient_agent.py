@@ -22,6 +22,9 @@ def generate_patient_reply(scenario: dict, clinic_message: str, turn_number: int
         ]
     ):
         return scenario["patient_opening"]
+    
+    if "demo patient profile" in clinic_message_lower or "create a demo patient" in clinic_message_lower:
+        return "Yes, please create a demo patient profile. My name is Maya Patel and my date of birth is March 14, 1998."
 
     if "911" in clinic_message_lower or "emergency care" in clinic_message_lower:
         return "Okay, I understand. I will seek urgent care instead of trying to book a regular appointment."
