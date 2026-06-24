@@ -76,6 +76,19 @@ def check_public_webhook_url(required: bool) -> None:
     if not public_webhook_base_url.startswith("https://"):
         raise RuntimeError("PUBLIC_WEBHOOK_BASE_URL should be a public HTTPS URL.")
 
+    placeholder_terms = [
+    "your-public-tunnel-url",
+    "example",
+    "localhost",
+    "127.0.0.1",
+]
+
+    if any(term in public_webhook_base_url for term in placeholder_terms):
+        raise RuntimeError(
+            "PUBLIC_WEBHOOK_BASE_URL appears to be a placeholder or local URL. "
+            "Use your actual ngrok HTTPS forwarding URL."
+    )
+    
     print(f"PASS: PUBLIC_WEBHOOK_BASE_URL is set: {public_webhook_base_url}")
 
 
