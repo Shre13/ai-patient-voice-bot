@@ -115,8 +115,7 @@ def respond():
 
     response = VoiceResponse()
 
-    if turn >= 6 or "thank you" in patient_reply.lower() or "urgent care" in patient_reply.lower():
-        response.say(patient_reply, voice="alice")
+    if turn >= 8 or "urgent care" in patient_reply.lower() or "emergency care" in patient_reply.lower():        response.say(patient_reply, voice="alice")
         response.say("Thank you. Goodbye.", voice="alice")
         response.hangup()
         return Response(str(response), mimetype="text/xml")
