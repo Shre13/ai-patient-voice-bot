@@ -43,6 +43,18 @@ def generate_patient_reply(scenario: dict, clinic_message: str, turn_number: int
         ]
     ):
         return "Yes, this is Maya Patel."
+    
+    # 2b. Date of birth request.
+    if any(
+        phrase in message
+        for phrase in [
+            "date of birth",
+            "dob",
+            "birth date",
+            "birthday",
+        ]
+    ):
+        return "My date of birth is March 14, 1998."
 
     # 3. Demo profile creation.
     if any(
