@@ -24,7 +24,7 @@ def save_webhook_event(event_type: str, payload: dict) -> None:
     events_dir = Path("calls") / "_twilio_events"
     events_dir.mkdir(parents=True, exist_ok=True)
 
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     event_path = events_dir / f"{timestamp}_{event_type}.json"
 
     event_data = {
@@ -148,7 +148,33 @@ def status_callback():
 
 @app.route("/recording-callback", methods=["POST"])
 def recording_callback():
-    save_webhook_event("recording_callback", dict(request.values))
+    payload = dict(request.values)
+    save_webhook_event("recording_callback", payload)
+
+    run_id = payload.get("run_id")
+
+    if run_id:
+        call_dir = Path("calls") / run_id
+        call_dir.mkdir(parents=True, exist_ok=True)
+
+        recording_metadata_path = call_dir / "recording_metadata.json"
+
+        recording_metadata = {
+            "call_sid": payload.get("CallSid"),
+            "recording_sid": payload.get("RecordingSid"),
+            "recording_url": payload.get("RecordingUrl"),
+            "recording_status": payload.get("RecordingStatus"),
+            "recording_duration": payload.get("RecordingDuration"),
+            "recording_channels": payload.get("RecordingChannels"),
+            "recording_source": payload.get("RecordingSource"),
+            "received_at": datetime.now(timezone.utc).isoformat(),
+        }
+
+        with recording_metadata_path.open("w", encoding="utf-8") as file:
+            json.dump(recording_metadata, file, indent=2)
+
+        print(f"Saved recording metadata: {recording_metadata_path}")
+
     return {"status": "received"}
 
 

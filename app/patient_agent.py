@@ -12,6 +12,17 @@ def generate_patient_reply(scenario: dict, clinic_message: str, turn_number: int
     scenario_id = scenario["id"]
     clinic_message_lower = clinic_message.lower()
 
+    if any(
+        phrase in clinic_message_lower
+        for phrase in [
+            "call may be recorded",
+            "recorded for quality",
+            "quality and training",
+            "this call is recorded",
+        ]
+    ):
+        return scenario["patient_opening"]
+
     if "911" in clinic_message_lower or "emergency care" in clinic_message_lower:
         return "Okay, I understand. I will seek urgent care instead of trying to book a regular appointment."
 
