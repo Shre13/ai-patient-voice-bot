@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_05_weekend_request",
+  "run_id": "20260624T022253Z_call_05_weekend_request",
+  "call_sid": "CA47676a206cf5dfe8baccae94f4f8fe16",
+  "recording_sid": "RE4cf9cb1d7c60e82df35fe0b1102d9b0a",
+  "recording_status": "completed",
+  "recording_duration_seconds": "18",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

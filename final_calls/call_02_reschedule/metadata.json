@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_02_reschedule",
+  "run_id": "20260624T022214Z_call_02_reschedule",
+  "call_sid": "CA058889c1a30e09c458fe690c8aaed846",
+  "recording_sid": "REe64cd630131d1a5e2c855e2c45906a29",
+  "recording_status": "completed",
+  "recording_duration_seconds": "21",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_10_urgent_symptom",
+  "run_id": "20260624T022346Z_call_10_urgent_symptom",
+  "call_sid": "CA90fa664d0d11859d4401cc3aa19bb5f8",
+  "recording_sid": "RE75c6a675a89ba1755cdfb8a3c6ed1744",
+  "recording_status": "completed",
+  "recording_duration_seconds": "18",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

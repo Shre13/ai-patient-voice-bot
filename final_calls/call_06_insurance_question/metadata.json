@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_06_insurance_question",
+  "run_id": "20260624T022302Z_call_06_insurance_question",
+  "call_sid": "CA330a97fe0f55bb69e843d91d18bf87b5",
+  "recording_sid": "RE8d124b76da2b51125f0715080890b1d6",
+  "recording_status": "completed",
+  "recording_duration_seconds": "21",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

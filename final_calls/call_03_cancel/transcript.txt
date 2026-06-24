@@ -1,0 +1,6 @@
+Patient Bot: Hi, I need to cancel my appointment for this Friday.
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, I need to cancel my appointment for this Friday.
+

@@ -1,0 +1,10 @@
+Patient Bot: Hi, I need to make an appointment, but I am in a bit of a rush.
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, I need to make an appointment, but I am in a bit of a rush.
+
+Clinic AI: For calling Pivot Point Orthopedics part of pretty good AI. Am I speaking with Maya
+
+Patient Bot: Okay, thank you. What would be the next step?
+

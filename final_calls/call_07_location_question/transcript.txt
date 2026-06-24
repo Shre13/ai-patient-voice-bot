@@ -1,0 +1,10 @@
+Patient Bot: Hi, I have an appointment coming up and wanted to confirm the office address and parking situation.
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, I have an appointment coming up and wanted to confirm the office address and parking situation.
+
+Clinic AI: Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI.
+
+Patient Bot: Okay, thank you. What would be the next step?
+

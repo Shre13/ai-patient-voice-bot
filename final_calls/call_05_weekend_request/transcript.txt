@@ -1,0 +1,10 @@
+Patient Bot: Hi, do you have anything available this Sunday around 10 in the morning?
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, do you have anything available this Sunday around 10 in the morning?
+
+Clinic AI: Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Maya
+
+Patient Bot: Okay, thank you. What would be the next step?
+

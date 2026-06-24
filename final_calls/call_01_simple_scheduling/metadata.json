@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_01_simple_scheduling",
+  "run_id": "20260624T022135Z_call_01_simple_scheduling",
+  "call_sid": "CAf56b3a70d70696891b4b14c4ed2fedd2",
+  "recording_sid": "RE916f2a9f789f26d052ade914025de6f2",
+  "recording_status": "completed",
+  "recording_duration_seconds": "57",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

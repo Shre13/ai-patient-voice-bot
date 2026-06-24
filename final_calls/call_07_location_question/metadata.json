@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_07_location_question",
+  "run_id": "20260624T022316Z_call_07_location_question",
+  "call_sid": "CA2e1b1b424462883cec581313a4c5bc98",
+  "recording_sid": "RE12b2544e75942ac40b77b88453ebe967",
+  "recording_status": "completed",
+  "recording_duration_seconds": "17",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

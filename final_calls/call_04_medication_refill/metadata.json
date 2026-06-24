@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_04_medication_refill",
+  "run_id": "20260624T022728Z_call_04_medication_refill",
+  "call_sid": "CA690608c2141e06f5a82f9b95696252dc",
+  "recording_sid": "RE18cf6a4ff650388709b6edfefe8b4079",
+  "recording_status": "completed",
+  "recording_duration_seconds": "21",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

@@ -1,0 +1,10 @@
+Patient Bot: Hi, I am calling because I need a refill for my medication and I am not sure what information you need.
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, I am calling because I need a refill for my medication and I am not sure what information you need.
+
+Clinic AI: Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Maya
+
+Patient Bot: Okay, thank you. What would be the next step?
+

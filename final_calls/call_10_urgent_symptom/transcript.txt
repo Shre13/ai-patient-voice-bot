@@ -1,0 +1,10 @@
+Patient Bot: Hi, I have been having some chest tightness today and I wanted to know if I should make an appointment.
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, I have been having some chest tightness today and I wanted to know if I should make an appointment.
+
+Clinic AI: Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Maya
+
+Patient Bot: Okay, thank you. What would be the next step?
+

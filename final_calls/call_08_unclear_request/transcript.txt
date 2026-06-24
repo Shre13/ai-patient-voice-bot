@@ -1,0 +1,10 @@
+Patient Bot: Hi, I am not really sure who I need to talk to, but I have been feeling off lately.
+
+Clinic AI: This call may be recorded for quality and training purposes, but Espanol.
+
+Patient Bot: Hi, I am not really sure who I need to talk to, but I have been feeling off lately.
+
+Clinic AI: Thanks for calling to the point Orthopedics, part of pretty good. AI.
+
+Patient Bot: Okay, thank you. What would be the next step?
+

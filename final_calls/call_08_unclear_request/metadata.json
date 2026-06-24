@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_08_unclear_request",
+  "run_id": "20260624T022324Z_call_08_unclear_request",
+  "call_sid": "CA5b542008e075a80e6c8b88490aff2937",
+  "recording_sid": "RE4fbba36cd035fd884224f89bc2317bb1",
+  "recording_status": "completed",
+  "recording_duration_seconds": "16",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

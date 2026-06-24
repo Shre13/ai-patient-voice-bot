@@ -1,0 +1,10 @@
+Patient Bot: Hi, I am a new patient and I wanted to check if you accept Blue Cross Blue Shield.
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, I am a new patient and I wanted to check if you accept Blue Cross Blue Shield.
+
+Clinic AI: Thanks for calling Pivot Point Orthopedics part of pretty good. AI. Can I speak with Maya?
+
+Patient Bot: Okay, thank you. What would be the next step?
+

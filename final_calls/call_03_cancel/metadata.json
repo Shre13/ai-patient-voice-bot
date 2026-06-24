@@ -1,0 +1,12 @@
+{
+  "scenario_id": "call_03_cancel",
+  "run_id": "20260624T022228Z_call_03_cancel",
+  "call_sid": "CA8fcb1f5a3143c056a0888e929ca71ec4",
+  "recording_sid": "RE0226d71a65e6af3d6cd9eada9b2ae190",
+  "recording_status": "completed",
+  "recording_duration_seconds": "19",
+  "transcript_file": "transcript.txt",
+  "recording_file": "recording.mp3",
+  "notes_file": "notes.md",
+  "artifact_status": "final_submission_candidate"
+}

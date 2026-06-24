@@ -1,0 +1,18 @@
+Patient Bot: Hi, I wanted to schedule an appointment for sometime next week. I have been having mild back pain.
+
+Clinic AI: This call may be recorded for quality and training purposes.
+
+Patient Bot: Hi, I wanted to schedule an appointment for sometime next week. I have been having mild back pain.
+
+Clinic AI: I can help with that before we get started. Would you like to create a demo patient profile? I just need your first and last name.
+
+Patient Bot: Yes, please create a demo patient profile. My name is Maya Patel and my date of birth is March 14, 1998.
+
+Clinic AI: Your patient profile has been created and your date of birth is set as July. 4th 2000 for demo purposes.
+
+Patient Bot: Sure, my name is Maya Patel and my date of birth is March 14, 1998.
+
+Clinic AI: Can I help you today?
+
+Patient Bot: That answers my question. Thank you for your help.
+
