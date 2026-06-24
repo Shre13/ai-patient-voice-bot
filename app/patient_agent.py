@@ -44,14 +44,33 @@ def generate_patient_reply(scenario: dict, clinic_message: str, turn_number: int
     ):
         return "Yes, this is Maya Patel."
     
+        # 2a. If identity/DOB is accepted and the clinic asks how to help, continue the scenario goal.
+    if any(
+        phrase in message
+        for phrase in [
+            "how can i help you today",
+            "how can i help",
+            "how may i help",
+            "what can i help",
+            "what are you calling about",
+        ]
+    ):
+        return scenario["patient_opening"]
+
+    
     # 2b. Date of birth request.
     if any(
         phrase in message
         for phrase in [
-            "date of birth",
-            "dob",
-            "birth date",
-            "birthday",
+            "please provide your date of birth",
+            "provide your date of birth",
+            "what is your date of birth",
+            "what's your date of birth",
+            "can i have your date of birth",
+            "may i have your date of birth",
+            "please provide your dob",
+            "what is your dob",
+            "what's your dob",
         ]
     ):
         return "My date of birth is March 14, 1998."
