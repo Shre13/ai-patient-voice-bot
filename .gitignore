@@ -44,3 +44,4 @@ calls/call_*/
 calls/_twilio_events/
 
 # Keep final_calls tracked for selected submission artifacts
+calls/browser_test_*/

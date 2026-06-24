@@ -4,7 +4,7 @@ from app.config import ASSESSMENT_PHONE_NUMBER
 from app.scenarios import SCENARIOS
 from app.run_context import create_run_id, create_run_directory
 from app.twilio_client import place_assessment_call
-
+from app.preflight import run_preflight
 
 CONFIRMATION_TEXT = "CALL_ASSESSMENT_LINE"
 
@@ -58,6 +58,11 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    run_preflight(
+    scenario_id=args.scenario,
+    real_call=args.real_call,
+)
 
     scenario = get_scenario_by_id(args.scenario)
     run_id = create_run_id(scenario["id"])

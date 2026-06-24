@@ -139,9 +139,10 @@ def place_assessment_call(
     client = get_twilio_client()
 
     base_url = public_webhook_base_url.rstrip("/")
-    voice_webhook_url = f"{base_url}/voice"
-    status_callback_url = f"{base_url}/status-callback"
-    recording_callback_url = f"{base_url}/recording-callback"
+
+    voice_webhook_url = f"{base_url}/voice?scenario_id={scenario_id}&run_id={run_id}"
+    status_callback_url = f"{base_url}/status-callback?scenario_id={scenario_id}&run_id={run_id}"
+    recording_callback_url = f"{base_url}/recording-callback?scenario_id={scenario_id}&run_id={run_id}"
 
     call = client.calls.create(
         to=to_number,
