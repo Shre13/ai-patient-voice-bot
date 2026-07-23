@@ -4,7 +4,7 @@ An automated testing framework that places real outbound phone calls to a health
 
 ## Background
 
-This project was built for a technical assessment for an AI voice-agent company (Pretty Good AI), which asked candidates to design an automated "patient" caller to stress-test their production clinic scheduling agent. Rather than treating it as a scripted benchmark runner, I focused on making the caller behave like a real user — natural turn-taking, realistic pacing, and active steering toward specific test outcomes — so the bugs it surfaced would reflect genuine conversational failure modes, not just scripted edge cases.
+This project was built for a technical assessment for an AI voice-agent company, which asked candidates to design an automated "patient" caller to stress-test their production clinic scheduling agent. Rather than treating it as a scripted benchmark runner, I focused on making the caller behave like a real user, natural turn-taking, realistic pacing, and active steering toward specific test outcomes, so the bugs it surfaced would reflect genuine conversational failure modes, not just scripted edge cases.
 
 ## What It Does
 
