@@ -1,62 +1,39 @@
-# AI Patient Voice Bot
+# AI Voice Agent Testing Framework
 
-A Python-based AI patient voice bot for testing a healthcare phone agent through automated outbound calls, Twilio webhooks, transcript capture, recording downloads, and bug reporting.
+An automated testing framework that places real outbound phone calls to a healthcare voice AI agent, simulates realistic patient scenarios, and surfaces bugs and quality issues through transcript analysis. Built in Python using Twilio for call automation and webhook handling.
 
-## Final Submission Summary
+## Background
 
-This project implements an automated patient caller that places outbound calls only to the approved assessment phone number. The bot follows predefined patient scenarios, interacts with the clinic voice AI, captures live transcripts, downloads Twilio call recordings, and organizes final artifacts for review.
+This project was built for a technical assessment for an AI voice-agent company (Pretty Good AI), which asked candidates to design an automated "patient" caller to stress-test their production clinic scheduling agent. Rather than treating it as a scripted benchmark runner, I focused on making the caller behave like a real user — natural turn-taking, realistic pacing, and active steering toward specific test outcomes — so the bugs it surfaced would reflect genuine conversational failure modes, not just scripted edge cases.
 
-## Final Call Artifacts
+## What It Does
 
-The final selected assessment calls are located in:
+- Places outbound calls via Twilio to a target voice AI agent
+- Runs 10 distinct patient scenarios: simple scheduling, rescheduling, cancellation, medication refills, weekend availability requests, insurance questions, location questions, unclear/ambiguous requests, mid-call interruptions, and urgent symptom triage
+- Captures full call recordings and transcripts for every scenario
+- Includes dry-run and preflight validation modes to catch configuration issues before placing real (billable) calls
+- Downloads and organizes final call artifacts (recording, transcript, metadata, notes) per scenario for review
 
-```text
-final_calls/
-```
+## Key Findings
 
-Each scenario folder contains:
+Through real-call testing, I identified and documented several issues in the agent's conversational logic, including:
+- Inconsistent handling of demo patient profile creation and date-of-birth verification
+- Incorrect availability logic (agent did not always correctly flag when requested times fell outside business hours)
+- Gaps in recording-disclosure consistency across calls
+- An incomplete medication-refill flow that required a rerun to capture cleanly
 
-```text
-recording.mp3
-transcript.txt
-metadata.json
-notes.md
-```
+Full write-up: [`reports/bug_report.md`](reports/bug_report.md)
 
-The project includes 10 final call scenarios:
+## Architecture
 
-1. `call_01_simple_scheduling`
-2. `call_02_reschedule`
-3. `call_03_cancel`
-4. `call_04_medication_refill`
-5. `call_05_weekend_request`
-6. `call_06_insurance_question`
-7. `call_07_location_question`
-8. `call_08_unclear_request`
-9. `call_09_interruption`
-10. `call_10_urgent_symptom`
+The system has three main layers:
+1. **Call orchestration** (`app/call_runner.py`, `app/preflight.py`) — validates configuration, manages dry-run vs. real-call modes, and requires explicit confirmation before placing real calls to avoid accidental dialing.
+2. **Webhook handling** (`app/webhook_server.py`) — a Flask server that receives Twilio call events and drives the conversation in real time.
+3. **Artifact pipeline** (`app/prepare_final_artifacts.py`) — downloads recordings and organizes transcripts/metadata into a consistent per-scenario structure for review and analysis.
 
-## Bug Report
+Design choices prioritized safety (hard-coded target number to prevent misdials, explicit confirmation phrase before real calls) and reproducibility (structured artifacts, dry-run mode for iteration without cost).
 
-The final bug report is available at:
-
-```text
-reports/bug_report.md
-```
-
-It documents issues found during real-call testing, including recording-disclosure handling, demo patient profile handling, webhook event logging, recording metadata capture, and an incomplete medication-refill call that required a rerun.
-
-## Safety Note
-
-The caller is designed to call only the assessment number provided in the challenge:
-
-```text
-+1-805-439-8008
-```
-
-The destination number is hard-coded in `app/config.py` instead of being accepted through user input. This reduces the risk of accidentally calling an unintended number during testing.
-
-## Local Setup
+## Setup
 
 ```bash
 python -m venv .venv
@@ -64,116 +41,52 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Local Simulation
-
-Run a local fake-clinic simulation:
-
-```bash
-python -m app.main
+Create a `.env` file based on `.env.example` with your Twilio credentials:
 ```
-
-Run a specific scenario:
-
-```bash
-python -m app.main --scenario call_05_weekend_request
-```
-
-## Webhook Server
-
-Start the Flask webhook server:
-
-```bash
-python -m app.webhook_server
-```
-
-Health check:
-
-```text
-http://127.0.0.1:5000/health
-```
-
-Voice webhook:
-
-```text
-http://127.0.0.1:5000/voice
-```
-
-## Public Webhook URL
-
-For real Twilio calls, the local Flask webhook must be exposed through a public HTTPS tunnel. The public base URL should be placed in `.env` as:
-
-```env
-PUBLIC_WEBHOOK_BASE_URL=https://your-public-tunnel-url
-```
-
-## Preflight Checks
-
-Run setup checks before a dry-run:
-
-```bash
-python -m app.preflight --scenario call_05_weekend_request
-```
-
-Run stricter checks before a real call:
-
-```bash
-python -m app.preflight --scenario call_05_weekend_request --real-call
-```
-
-The real-call preflight requires a valid public webhook URL in `.env`.
-
-## Real Call Runner
-
-Dry-run validation:
-
-```bash
-python -m app.call_runner --scenario call_05_weekend_request
-```
-
-Real call mode:
-
-```bash
-python -m app.call_runner --scenario call_05_weekend_request --real-call
-```
-
-Before placing a real call, the script requires the exact confirmation phrase:
-
-```text
-CALL_ASSESSMENT_LINE
-```
-
-## Final Artifact Preparation
-
-After real calls complete, final call artifacts can be prepared with:
-
-```bash
-python -m app.prepare_final_artifacts
-```
-
-This script downloads Twilio recordings and creates clean `metadata.json` and `notes.md` files for each final call folder.
-
-## Project Structure
-
-```text
-app/          Core Python application code
-calls/        Generated local and Twilio call outputs
-docs/         Architecture and setup notes
-final_calls/  Final selected assessment artifacts
-reports/      Bug report and evaluation notes
-tests/        Test files
-```
-
-## Environment Variables
-
-Create a local `.env` file based on `.env.example`.
-
-Required for real calls:
-
-```env
 TWILIO_ACCOUNT_SID=
 TWILIO_AUTH_TOKEN=
 TWILIO_PHONE_NUMBER=
 PUBLIC_WEBHOOK_BASE_URL=
 ```
 
-The `.env` file is intentionally excluded from Git.
+## Usage
+
+Run a local simulation:
+```bash
+python -m app.main --scenario call_05_weekend_request
+```
+
+Start the webhook server (for real calls, expose via a public HTTPS tunnel):
+```bash
+python -m app.webhook_server
+```
+
+Validate before a real call:
+```bash
+python -m app.preflight --scenario call_05_weekend_request --real-call
+```
+
+Place a real call (requires typing the confirmation phrase `CALL_ASSESSMENT_LINE`):
+```bash
+python -m app.call_runner --scenario call_05_weekend_request --real-call
+```
+
+Generate final artifacts after calls complete:
+```bash
+python -m app.prepare_final_artifacts
+```
+
+## Project Structure
+
+```
+app/          Core application code (call orchestration, webhook server, artifact prep)
+calls/        Generated local and Twilio call outputs
+docs/         Architecture and setup notes
+final_calls/  Final selected call artifacts (recording, transcript, metadata, notes per scenario)
+reports/      Bug report and evaluation notes
+tests/        Test files
+```
+
+## Tech Stack
+
+Python, Twilio (voice + webhooks), Flask, speech-to-text/text-to-speech APIs
